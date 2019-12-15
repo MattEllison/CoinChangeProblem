@@ -6,8 +6,7 @@ Varation of CoinChangeProblem
 
 Given a value figure out the minimum number of bills based on availabile bills
 
-ex:
-
+**_Example 1_**
 Options => [2,5,10]
 Value => 11
 Answer should be this object
