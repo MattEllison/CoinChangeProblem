@@ -8,11 +8,15 @@ namespace min_coins_version
         static void Main(string[] args)
         {
 
-            int[] bills = { 2, 3 };
-            int customerCash = 5;
+            int[] bills = { 2, 6, 3 };
+            int customerCash = 9;
 
             //Options would 4 one dollar bills or 2 two dollar bills
-            ChangeHelper.MinBillResult(bills, customerCash);
+            var final = ChangeHelper.MinBills(bills, customerCash);
+            foreach (var item in final)
+            {
+                Console.WriteLine(item.Key + " - " + item.Value);
+            }
             //Console.Write("Minimum bills required is " + ChangeHelper.MinBills(bills, customerCash));
 
 
