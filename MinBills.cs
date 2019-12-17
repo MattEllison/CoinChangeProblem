@@ -14,42 +14,28 @@ namespace min_coins_version
         public static Dictionary<int, int> MinBills(int[] bills, int customerCash)
         {
 
-            // base case 
-            //if (customerCash == 0) return new Dictionary<int, int>();
-
             // Initialize result 
             int res = int.MaxValue;
             var temp = new Dictionary<int, int>();
-            // Try every coin that has 
-            // smaller value than V 
+
             foreach (var bill in bills)
             {
-
                 if (bill <= customerCash)
                 {
 
                     var nextCash = customerCash - bill;
                     var sub_res = nextCash > 0 ? MinBills(bills, nextCash) : new Dictionary<int, int>();
-                    // 3,1
-                    // 2, 2
-
-
                     if (sub_res.ContainsKey(bill))
-                    {
                         sub_res[bill]++;
-                    }
                     else
-                    {
                         sub_res[bill] = 1;
-                    }
+
 
                     var sum = sub_res.Sum(x => x.Key * x.Value);
-                    // Check for INT_MAX to  
-                    // if result can minimized 
+
                     if (sum == customerCash && sub_res.Values.Sum() < res)
                     {
                         res = sub_res.Values.Sum();
-
                         temp = sub_res;
                     }
                 }
